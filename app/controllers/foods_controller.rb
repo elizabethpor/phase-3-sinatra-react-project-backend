@@ -9,4 +9,14 @@ class FoodsController < ApplicationController
       food = Food.find(params[:id])
       food.to_json
     end
+
+    post '/foods/new' do
+      food = Food.create(
+        name: params[:name],
+        price: params[:price],
+        category_id: params[:category_id],
+        description: params[:description]
+      )
+      food.to_json
+    end
 end
