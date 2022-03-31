@@ -20,7 +20,7 @@ class FoodsController < ApplicationController
       food.to_json
     end
 
-    patch '/foods/:id/edit' do
+    patch '/foods/edit/:id' do
       food = Food.find(params[:id])
       food.update(
         name: params[:name],
@@ -28,6 +28,7 @@ class FoodsController < ApplicationController
         category_id: params[:category_id],
         description: params[:description]
       )
+      food.to_json
     end
 
     delete '/foods/:id' do
