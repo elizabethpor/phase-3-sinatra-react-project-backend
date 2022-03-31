@@ -29,4 +29,10 @@ class FoodsController < ApplicationController
         description: params[:description]
       )
     end
+
+    delete '/foods/:id' do
+      food = Food.find(params[:id])
+      food.destroy
+      food.to_json
+    end
 end
